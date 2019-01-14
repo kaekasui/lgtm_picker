@@ -1,0 +1,10 @@
+= form_for @lgtm do |f|
+  - if @lgtm.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@lgtm.errors.count, "error")} prohibited this lgtm from being saved:"
+      ul
+        - @lgtm.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.text_field :url

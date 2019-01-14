@@ -1,0 +1,13 @@
+== render 'form'
+
+table
+  thead
+    tr
+      th
+      th
+
+  tbody
+    - @lgtms.each do |lgtm|
+      tr
+        td = image_tag lgtm.url
+        td = link_to 'Destroy', lgtm, data: { confirm: 'Are you sure?' }, method: :delete
