@@ -7,7 +7,13 @@ table
       th
 
   tbody
+    /button type='button' copy-to-clipboard-button data-clipboard-text="Hello Clipboard!"
     - @lgtms.each do |lgtm|
       tr
-        td = image_tag lgtm.url
+        td
+          input id="image-#{lgtm.id}" type='text' value="![LGTM](#{lgtm.url})"
+      tr
+        td
+          a class='clipboard-btn' data-clipboard-action='copy' data-clipboard-target="#image-#{lgtm.id}"
+            = image_tag lgtm.url
         td = link_to 'Destroy', lgtm, data: { confirm: 'Are you sure?' }, method: :delete
